@@ -108,52 +108,73 @@ main {
 
 /* Skills Section Card Styles */
 .card {
-    height: 100%; /* Make all cards fill the height of the row */
-    background: linear-gradient(135deg, #ffb3d9, #ffcce6);
+    height: 100%; /* Ensure cards are consistent in height */
+    background: linear-gradient(135deg, #ffb3d9, #ff80bf);
     border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 15px; /* Add spacing between the cards */
+    border-radius: 15px; /* Smooth border for a modern look */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    margin: 15px; /* Spacing between cards */
+    display: flex; /* Flexbox centering */
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Enable pseudo-element positioning */
+    overflow: hidden; /* Clip pseudo-element overflow */
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+    transform: rotate(45deg);
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Prevent blocking interactions */
 }
 
 .card:hover {
-    transform: translateY(-10px); /* Lift the card slightly on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
+    transform: translateY(-10px); /* Slight lift effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
+    background: linear-gradient(135deg, #ff80bf, #ffb3d9); /* Gradient color shift */
+}
+
+.card:hover::before {
+    opacity: 1; /* Make the glowing effect visible */
 }
 
 .card h5 {
-    color: #ff3366;
-    font-size: 1.25rem;
+    color: #ffffff; /* White text for better contrast */
+    font-size: 1.8rem; /* Slightly larger font */
     font-weight: bold;
-    margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px; /* More spaced-out letters */
+    margin: 0; /* Remove default margin */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+    z-index: 1; /* Ensure it appears above pseudo-elements */
 }
 
-.card p {
-    color: #333;
-    font-size: 0.9rem;
-}
-
-/* Row Styles for Spacing and Centering */
+/* Animation for Card Appearance */
 .row.justify-content-center {
     margin: 0 -10px; /* Adjust margins for proper alignment */
     gap: 20px; /* Add spacing between rows */
     animation: fadeInSkills 1.2s ease-in-out;
 }
 
-/* Animation for Skills Section */
 @keyframes fadeInSkills {
     from {
         opacity: 0;
-        transform: scale(0.95);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
     }
 }
+
 
 /* Footer Styles */
 footer {
