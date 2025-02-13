@@ -108,18 +108,18 @@ main {
 
 /* Skills Section Card Styles */
 .card {
-    height: 100%; /* Ensure cards are consistent in height */
+    height: 100%;
     background: linear-gradient(135deg, #ffb3d9, #ff80bf);
     border: none;
-    border-radius: 15px; /* Smooth border for a modern look */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    border-radius: 15px; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    margin: 15px; /* Spacing between cards */
-    display: flex; /* Flexbox centering */
+    margin: 15px; 
+    display: flex; 
     align-items: center;
     justify-content: center;
-    position: relative; /* Enable pseudo-element positioning */
-    overflow: hidden; /* Clip pseudo-element overflow */
+    position: relative;
+    overflow: hidden;
 }
 
 .card::before {
